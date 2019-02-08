@@ -15,7 +15,7 @@ RUN apt-get update -y
 RUN apt-get install -y ca-certificates curl software-properties-common gnupg jq git
 
 # Install the Pulumi SDK, including the CLI and language runtimes.
-RUN curl -fsSL https://get.pulumi.com/ | bash -s -- --version 0.16.9 && \
+RUN curl -fsSL https://get.pulumi.com/ | bash -s -- --version 0.16.14 && \
     mv ~/.pulumi/bin/* /usr/bin
 
 # Install the necessary runtimes to support Pulumi languages.
@@ -69,4 +69,4 @@ VOLUME ["/app"]
 
 # This image uses a thin wrapper over the Pulumi CLI as its entrypoint. As a result, you may run commands
 # simply by running `docker run pulumi/pulumi up` to run the program mounted in the `/app` volume location.
-ENTRYPOINT ["/usr/bin/pulumi-action", "--non-interactive"]
+ENTRYPOINT ["/usr/bin/pulumi-action"]
