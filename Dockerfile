@@ -58,10 +58,6 @@ RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key
 # Copy the entrypoint script.
 COPY ./entrypoint.sh /usr/bin/pulumi-action
 
-# The app directory should contain the Pulumi program and is the pwd for the CLI.
-WORKDIR /app
-VOLUME ["/app"]
-
 # The app.pulumi.com access token is specified as an environment variable. You can create a new
 # access token on your account page at https://app.pulumi.com/account. Please override this when
 # running the Docker container using `docker run pulumi/pulumi -e "PULUMI_ACCESS_TOKEN=a1b2c2def9"`.
